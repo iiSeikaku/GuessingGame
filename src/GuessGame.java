@@ -81,7 +81,11 @@ import java.util.Scanner;
             }
             if (gamemode.equals("B")){
                 System.out.println("The computer will now guess your number from 1-100");
-
+                System.out.println("Type Higher if the number is higher, or type Lower if the number is lower");
+                System.out.println("Type Correct, if the answer is correct");
+                int initialguess = (int)(Math.random()*100+1);
+                System.out.println(""+ initialguess+"");
+                String userinput = input.nextLine();
             }
         }
     }
