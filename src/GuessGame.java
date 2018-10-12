@@ -5,36 +5,83 @@ import java.util.Scanner;
             System.out.println("Guess the number!");
             System.out.println("Does the player guess or does the computer guess? ");
             System.out.println("Type A or B");
-            //Creates a new scanner here
-            Scanner game = new Scanner(System.in);
-            String gametype = game.nextLine();
-            if (gametype == "A"){
-                Scanner difficulty = new Scanner(System.in);
-                int gamediff = difficulty.nextInt();
+            int A = (int) (Math.random() * 10 + 1);
+            int B = (int) (Math.random() * 100 + 1);
+            int C = (int) (Math.random() * 1000 + 1);
+            int D = (int) (Math.random() * 10000 + 1);
+            Scanner input = new Scanner(System.in);
+            String gamemode = input.nextLine();
+            if (gamemode.equals("A")) {
                 System.out.println("Type 1 for numbers 1-10");
                 System.out.println("Type 2 for numbers 1-100");
                 System.out.println("Type 3 for numbers 1-1000");
                 System.out.println("Type 4 for numbers 1-10000");
-                if (gamediff==1){
-                    int A = (int)(Math.random()*11+1);
-                    Scanner input = new Scanner(System.in);
-                    int answer = input.nextInt();
-                    System.out.println("Guess a number between 1-10!");
-                    while (answer != A){
-                        System.out.println("Guess Again!");
+                int difficulty = input.nextInt();
+                if (difficulty == 1) {
+                    System.out.println("Guess a number!");
+                    while (input.nextInt() != A) {
+                        System.out.println("Try Again!");
                     }
+                    System.out.println("Congratulations! You Win!");
                 }
-                if (gamediff==2){
-                    int B = (int)(Math.random()*101+1);
+                if (difficulty ==2){
+                    System.out.println("Guess a number!");
+                    int num1 = input.nextInt();
+                    int e = 1;
+                    while (num1 != B){
+                        if (num1 > B){
+                            System.out.println("Lower!");
+                        }
+                        if (num1 < B){
+                            System.out.println("Higher!");
+                        }
+                        e += 1;
+                        System.out.println("Try Again!");
+                        num1 = input.nextInt();
+                    }
+                    System.out.println("Congratulations! You win!");
+                    System.out.println("It took you "+ e +" tries to get "+ B +"");
                 }
-                if (gamediff==3){
-                    int C = (int)(Math.random()*1001+1);
+                if (difficulty ==3){
+                    System.out.println("Guess a number!");
+                    int num1 = input.nextInt();
+                    int e = 1;
+                    while (num1 != C){
+                        if (num1 > C){
+                            System.out.println("Lower!");
+                        }
+                        if (num1 < C){
+                            System.out.println("Higher!");
+                        }
+                        e += 1;
+                        System.out.println("Try Again!");
+                        num1 = input.nextInt();
+                    }
+                    System.out.println("Congratulations! You win!");
+                    System.out.println("It took you "+ e +" tries to get "+ C +"");
                 }
-                if (gamediff==4){
-                    int D = (int)(Math.random()*10001+1);
+                if (difficulty ==4){
+                    System.out.println("Guess a number!");
+                    int num1 = input.nextInt();
+                    int e = 1;
+                    while (num1 != D){
+                        if (num1 > D){
+                            System.out.println("Lower!");
+                        }
+                        if (num1 < D){
+                            System.out.println("Higher!");
+                        }
+                        e += 1;
+                        System.out.println("Try Again!");
+                        num1 = input.nextInt();
+                    }
+                    System.out.println("Congratulations! You win!");
+                    System.out.println("It took you "+ e +" tries to get "+ D +"");
                 }
+            }
+            if (gamemode.equals("B")){
+                System.out.println("The computer will now guess your number from 1-100");
 
             }
         }
-
     }
