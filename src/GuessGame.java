@@ -24,15 +24,15 @@ import java.util.Scanner;
                     }
                     System.out.println("Congratulations! You Win!");
                 }
-                if (difficulty ==2){
+                if (difficulty == 2) {
                     System.out.println("Guess a number!");
                     int num1 = input.nextInt();
                     int e = 1;
-                    while (num1 != B){
-                        if (num1 > B){
+                    while (num1 != B) {
+                        if (num1 > B) {
                             System.out.println("Lower!");
                         }
-                        if (num1 < B){
+                        if (num1 < B) {
                             System.out.println("Higher!");
                         }
                         e += 1;
@@ -40,17 +40,17 @@ import java.util.Scanner;
                         num1 = input.nextInt();
                     }
                     System.out.println("Congratulations! You win!");
-                    System.out.println("It took you "+ e +" tries to get "+ B +"");
+                    System.out.println("It took you " + e + " tries to get " + B + "");
                 }
-                if (difficulty ==3){
+                if (difficulty == 3) {
                     System.out.println("Guess a number!");
                     int num1 = input.nextInt();
                     int e = 1;
-                    while (num1 != C){
-                        if (num1 > C){
+                    while (num1 != C) {
+                        if (num1 > C) {
                             System.out.println("Lower!");
                         }
-                        if (num1 < C){
+                        if (num1 < C) {
                             System.out.println("Higher!");
                         }
                         e += 1;
@@ -58,17 +58,17 @@ import java.util.Scanner;
                         num1 = input.nextInt();
                     }
                     System.out.println("Congratulations! You win!");
-                    System.out.println("It took you "+ e +" tries to get "+ C +"");
+                    System.out.println("It took you " + e + " tries to get " + C + "");
                 }
-                if (difficulty ==4){
+                if (difficulty == 4) {
                     System.out.println("Guess a number!");
                     int num1 = input.nextInt();
                     int e = 1;
-                    while (num1 != D){
-                        if (num1 > D){
+                    while (num1 != D) {
+                        if (num1 > D) {
                             System.out.println("Lower!");
                         }
-                        if (num1 < D){
+                        if (num1 < D) {
                             System.out.println("Higher!");
                         }
                         e += 1;
@@ -76,16 +76,35 @@ import java.util.Scanner;
                         num1 = input.nextInt();
                     }
                     System.out.println("Congratulations! You win!");
-                    System.out.println("It took you "+ e +" tries to get "+ D +"");
+                    System.out.println("It took you " + e + " tries to get " + D + "");
                 }
             }
-            if (gamemode.equals("B")){
+            if (gamemode.equals("B")) {
                 System.out.println("The computer will now guess your number from 1-100");
                 System.out.println("Type Higher if the number is higher, or type Lower if the number is lower");
                 System.out.println("Type Correct, if the answer is correct");
-                int initialguess = (int)(Math.random()*100+1);
-                System.out.println(""+ initialguess+"");
-                String userinput = input.nextLine();
+                int uprange = 100;
+                int lowrange = 0;
+                int cpuguesscount = 1;
+                int guess= (int)(Math.random()*100+1);
+                System.out.println(""+ guess +"");
+               String answer = input.nextLine();
+               while (!(answer.equals("Correct"))){
+                   if (answer.equals("Higher")){
+                        lowrange = guess;
+                   }
+                   if (answer.equals("Lower")){
+                       uprange = guess;
+                   }
+                   guess = (int)(Math.random()*100+1);
+                   while (guess >= uprange || guess <= lowrange){
+                       guess = (int)(Math.random()*100+1);
+                   }
+                   System.out.println(""+guess+"");
+                   cpuguesscount ++;
+                   answer = input.nextLine();
+               }
+               System.out.println("It took the computer "+cpuguesscount+" tries to guess your number");
             }
         }
     }
